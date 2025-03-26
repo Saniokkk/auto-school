@@ -11,14 +11,17 @@ $mail->IsHTML(true); /* Разрешаем работу с HTML */
 
 $name = $_POST["name"]; /* Принимаем имя пользователя с формы .. */
 $phone = $_POST["phone"]; /* Телефон */
+$course = isset($_POST["course"]) ? implode(", ", $_POST["course"]) : "Курсів не обрано"; // Объединяем в строку
+
 
 $email_template = "template_mail.html"; // Считываем файл разметки
 $body = file_get_contents($email_template); // Сохраняем данные в $body
 $body = str_replace('%name%', $name, $body); // Заменяем строку %name% на имя
 $body = str_replace('%phone%', $phone, $body); // строку %phone% на телефон
+$body = str_replace('%course%', $course, $body); // строку %course% на телефон
 
-// $mail->addAddress("kashirin.alexsandr91@gmail.com"); /* Здесь введите Email, куда отправлять */
-$mail->addAddress("avtoshkoladriver.tet@gmail.com"); /* Здесь введите Email, куда отправлять */
+$mail->addAddress("kashirin.alexsandr91@gmail.com"); /* Здесь введите Email, куда отправлять */
+// $mail->addAddress("avtoshkoladriver.tet@gmail.com"); /* Здесь введите Email, куда отправлять */
 // $mail->setFrom($email);
 $mail->Subject = "[Заявка с форми]"; /* Тема письма */
 $mail->MsgHTML($body);
