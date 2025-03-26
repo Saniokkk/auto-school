@@ -1,11 +1,9 @@
 .credit-section {
-  background: linear-gradient(
-      to top,
+  background: linear-gradient(to top,
       rgba(13, 13, 13, 1),
       rgba(13, 13, 13, 0.7),
       rgba(13, 13, 13, 0.7),
-      rgba(13, 13, 13, 1)
-    ),
+      rgba(13, 13, 13, 1)),
     url('../img/credit.jpg');
   background-size: cover;
   background-position: center;
@@ -59,9 +57,8 @@
 
 .credit-information {
   @media screen and (min-width: 768px) {
-    width: 700px;
+    width: 580px;
     margin-top: 50px;
-    margin-right: 170px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -79,8 +76,7 @@
     font-size: 24px;
   }
 
-  @media screen and (min-width: 1280px) {
-  }
+  @media screen and (min-width: 1280px) {}
 }
 
 .credit-information-pre {
@@ -89,6 +85,7 @@
 
 .information-btn {
   margin-top: 30px;
+
   @media screen and (min-width: 768px) {
     margin-top: 55px;
   }

@@ -4,7 +4,9 @@ import toggleModal from './multi-modal';
 const modal = document.querySelector('[data-modal-order]');
 
 const form = document.querySelector('#form');
+
 form.addEventListener('submit', formSend);
+
 async function formSend(e) {
   console.log(e);
   e.preventDefault();
@@ -18,7 +20,6 @@ async function formSend(e) {
     return;
   }
 
-  // console.log(formData.get('course'));
   formData.forEach(console.log);
 
   let response = await fetch('send_mail.php', {
@@ -48,7 +49,6 @@ async function formSend(e) {
     });
 
     const { name, phone, course } = dataObj;
-    console.log(dataObj);
 
     if (!name || !phone || !course) {
       return 'Будь ласка заповніть всі поля';
