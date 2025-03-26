@@ -4,20 +4,24 @@ import toggleModal from './multi-modal';
 const modal = document.querySelector('[data-modal-order]');
 
 const form = document.querySelector('#form');
+
 form.addEventListener('submit', formSend);
+
 async function formSend(e) {
   console.log(e);
   e.preventDefault();
+  let formData = new FormData(form);
 
   const error = formValidate(e.currentTarget);
   console.log('error: ', error);
 
-  if(error) {
+  if (error) {
     Notiflix.Notify.failure(error);
-    return
+    return;
   }
 
-  let formData = new FormData(form);
+  formData.forEach(console.log);
+
   let response = await fetch('send_mail.php', {
     method: 'POST',
     body: formData,
@@ -31,11 +35,23 @@ async function formSend(e) {
   }
 
   function formValidate(form) {
-    const name = form.elements.name.value;
-    const phone = form.elements.phone.value;
+    // const name = form.elements.name.value;
+    // const phone = form.elements.phone.value;
 
-    if(name === '' || phone === ''){
-        return "Будь ласка заповніть всі поля"
+    // if (name === '' || phone === '') {
+    //   return 'Будь ласка заповніть всі поля';
+    // }
+
+    const dataObj = {};
+
+    formData.forEach((value, key, forData) => {
+      dataObj[key] = value;
+    });
+
+    const { name, phone, course } = dataObj;
+
+    if (!name || !phone || !course) {
+      return 'Будь ласка заповніть всі поля';
     }
   }
 }
