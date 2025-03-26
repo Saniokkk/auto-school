@@ -8,6 +8,10 @@
   --button-bg-color: #1db428;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Proxima Nova Rg', sans-serif;
   font-size: 16px;

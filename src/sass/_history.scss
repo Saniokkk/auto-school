@@ -1,0 +1,193 @@
+.history {
+  position: relative;
+  background: linear-gradient(
+      to top,
+      rgba(10, 10, 10, 0.9),
+      rgba(10, 10, 10, 0.7),
+      rgba(10, 10, 10, 0.7),
+      rgba(10, 10, 10, 0.9)
+    ),
+    url('../img/tet.webp');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  padding: 50px 0 50px 0;
+  
+  @media screen and (min-width: 1280px) {
+    background-position: top right !important;
+    background-size: cover !important;
+     background: linear-gradient(
+      to top,
+      rgba(10, 10, 10, 0.9),
+      rgba(10, 10, 10, 0.7),
+      rgba(10, 10, 10, 0.7),
+      rgba(10, 10, 10, 0.9)
+    ),
+    url('../img/mother.webp');
+  }
+}
+
+.history-practice {
+  position: relative;
+  text-align: center;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.history-title {
+  margin-bottom: 8px;
+}
+
+.pre-title {
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.border-history {
+  padding-bottom: 3px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.list-title {
+  display: inline-block;
+  font-size: 17px;
+  text-align: center;
+  color: var(--main-text-color);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+
+   @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.history-list-btn {
+  display: flex;
+  gap: 20px;
+}
+
+.history-description-list {
+  text-align: start;
+  margin-bottom: 60px;
+  
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+}
+
+
+.history-item {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+
+  &::before {
+    content: '🎯';
+    position: absolute;
+    left: -5px;
+    top: 9px;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 30px;
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex: 1 1 45%
+  }
+}
+
+.format-description-list {
+     text-align: start;
+  margin-bottom: 60px;
+
+   @media screen and (min-width: 768px) {
+    margin-left: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+   @media screen and (min-width: 1280px) {
+     display: flex;
+     flex-direction: column;
+   }
+}
+
+.format-item {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+
+  &::before {
+    content: '🔸';
+    position: absolute;
+    left: -5px;
+    top: 9px;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 30px;
+    font-size: 18px;
+    flex: 1 1 45%
+  }
+}
+
+.history-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  right: -108px;
+  width: 240px;
+  height: 35px;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 14px;
+
+  @media screen and (min-width: 1280px) {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    right: -135px;
+  }
+}
+
+.format {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+
+}
+
+.discription-wrapper {
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
