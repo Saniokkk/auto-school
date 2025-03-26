@@ -40,6 +40,7 @@ async function formSend(e) {
     // if (name === '' || phone === '') {
     //   return 'Будь ласка заповніть всі поля';
     // }
+
     const dataObj = {};
 
     formData.forEach((value, key, forData) => {
