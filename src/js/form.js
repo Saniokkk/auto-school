@@ -10,16 +10,21 @@ form.addEventListener('submit', formSend);
 async function formSend(e) {
   e.preventDefault();
 
-  let formData = new FormData(form);
+  const formData = {
+    name: form.name.value.trim(),
+    phone: form.phone.value.trim(),
+    driving: form.driving.checked,
+    history: form.history.checked,
+  };
 
-  formData.forEach(console.log);
-  const error = formValidate(e.currentTarget);
-  console.log('error: ', error);
+  const error = formValidate(formData);
 
   if (error) {
     Notiflix.Notify.failure(error);
     return;
   }
+
+  console.log(formData);
 
   try {
     let response = await fetch('send_mail.php', {
@@ -39,13 +44,7 @@ async function formSend(e) {
   }
 
   function formValidate(form) {
-    const dataObj = {};
-
-    formData.forEach((value, key, forData) => {
-      dataObj[key] = value;
-    });
-
-    const { name, phone, driving, history } = dataObj;
+    const { name, phone, driving, history } = form;
 
     if (!name || !phone || (!history && !driving)) {
       return 'Будь ласка заповніть всі данні!';
