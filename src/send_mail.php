@@ -11,7 +11,12 @@ $mail->IsHTML(true); /* Разрешаем работу с HTML */
 
 $name = $_POST["name"]; /* Принимаем имя пользователя с формы .. */
 $phone = $_POST["phone"]; /* Телефон */
-$course = isset($_POST["course"]) ? implode(", ", (array)$_POST["course"]) : "Курсів не обрано";
+$phone = $_POST["driving"]; /* Телефон */
+$phone = $_POST["history"]; /* Телефон */
+
+// Формування символів для driving та history
+$drivingStatus = $driving ? '<span style="color: green;">&#10004;</span>' : '<span style="color: red;">&#10008;</span>';
+$historyStatus = $history ? '<span style="color: green;">&#10004;</span>' : '<span style="color: red;">&#10008;</span>';
 
 
 $email_template = "template_mail.html"; // Считываем файл разметки
@@ -22,7 +27,8 @@ if ($body === false) {
 } // Сохраняем данные в $body
 $body = str_replace('%name%', $name, $body); // Заменяем строку %name% на имя
 $body = str_replace('%phone%', $phone, $body); // Заменяем строку %phone% на телефон
-$body = str_replace('%course%', $course, $body); // Заменяем строку %course% на курс
+$body = str_replace('%driving%', $drivingStatus, $body); // Заменяем строку %coudrivingrse% на курс
+$body = str_replace('%history%', $historyStatus, $body); // Заменяем строку %history% на курс
 
 $mail->addAddress("kashirin.alexsandr91@gmail.com"); /* Здесь введите Email, куда отправлять */
 // $mail->addAddress("avtoshkoladriver.tet@gmail.com"); /* Здесь введите Email, куда отправлять */

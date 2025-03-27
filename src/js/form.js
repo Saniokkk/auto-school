@@ -12,14 +12,6 @@ async function formSend(e) {
 
   let formData = new FormData(form);
 
-  const courses = [
-    ...e.currentTarget.querySelectorAll('input[name="course"]:checked'),
-  ].map(checkbox => checkbox.value);
-
-  console.log(courses);
-  formData.delete('course');
-  courses.forEach(course => formData.append('courses', course));
-
   formData.forEach(console.log);
   const error = formValidate(e.currentTarget);
   console.log('error: ', error);
@@ -53,9 +45,9 @@ async function formSend(e) {
       dataObj[key] = value;
     });
 
-    const { name, phone, courses } = dataObj;
+    const { name, phone, driving, history } = dataObj;
 
-    if (!name || !phone || !courses) {
+    if (!name || !phone || (!history && !driving)) {
       return 'Будь ласка заповніть всі данні!';
     }
   }
