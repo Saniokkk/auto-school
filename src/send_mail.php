@@ -11,14 +11,18 @@ $mail->IsHTML(true); /* Разрешаем работу с HTML */
 
 $name = $_POST["name"]; /* Принимаем имя пользователя с формы .. */
 $phone = $_POST["phone"]; /* Телефон */
-$course = isset($_POST["course"]) ? implode(", ", $_POST["course"]) : "Курсів не обрано"; // Объединяем в строку
+$course = isset($_POST["course"]) ? implode(", ", (array)$_POST["course"]) : "Курсів не обрано";
 
 
 $email_template = "template_mail.html"; // Считываем файл разметки
-$body = file_get_contents($email_template); // Сохраняем данные в $body
+$body = file_get_contents($email_template);
+if ($body === false) {
+    echo json_encode(["message" => "Помилка: Не вдалося прочитати шаблон email."]);
+    exit;
+} // Сохраняем данные в $body
 $body = str_replace('%name%', $name, $body); // Заменяем строку %name% на имя
-$body = str_replace('%phone%', $phone, $body); // строку %phone% на телефон
-$body = str_replace('%course%', $course, $body); // строку %course% на телефон
+$body = str_replace('%phone%', $phone, $body); // Заменяем строку %phone% на телефон
+$body = str_replace('%course%', $course, $body); // Заменяем строку %course% на курс
 
 $mail->addAddress("kashirin.alexsandr91@gmail.com"); /* Здесь введите Email, куда отправлять */
 // $mail->addAddress("avtoshkoladriver.tet@gmail.com"); /* Здесь введите Email, куда отправлять */
@@ -28,7 +32,7 @@ $mail->MsgHTML($body);
 
 /* Проверяем отправлено ли сообщение */
 if (!$mail->send()) {
-  $message = "Виникла спробуйте ще раз";
+  $message = "Виникла помилка спробуйте ще раз";
 } else {
   $message = "Заявка успішно відправленна очікуйте дзвінка";
 }

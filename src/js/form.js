@@ -9,8 +9,18 @@ form.addEventListener('submit', formSend);
 
 async function formSend(e) {
   e.preventDefault();
+
   let formData = new FormData(form);
 
+  const courses = [
+    ...e.currentTarget.querySelectorAll('input[name="course"]:checked'),
+  ].map(checkbox => checkbox.value);
+
+  console.log(courses);
+  formData.delete('course');
+  courses.forEach(course => formData.append('courses', course));
+
+  formData.forEach(console.log);
   const error = formValidate(e.currentTarget);
   console.log('error: ', error);
 
@@ -19,18 +29,21 @@ async function formSend(e) {
     return;
   }
 
-  formData.forEach(console.log);
+  try {
+    let response = await fetch('send_mail.php', {
+      method: 'POST',
+      body: formData,
+    });
 
-  let response = await fetch('send_mail.php', {
-    method: 'POST',
-    body: formData,
-  });
-
-  if (response.ok) {
-    let result = await response.json();
-    toggleModal(e, modal);
-    Notiflix.Notify.success(result.message);
-    form.reset();
+    if (response.ok) {
+      let result = await response.json();
+      toggleModal(e, modal);
+      Notiflix.Notify.success(result.message);
+      form.reset();
+    }
+  } catch (error) {
+    console.log(error);
+    Notiflix.Notify.failure(error.message);
   }
 
   function formValidate(form) {
@@ -40,9 +53,9 @@ async function formSend(e) {
       dataObj[key] = value;
     });
 
-    const { name, phone, course } = dataObj;
+    const { name, phone, courses } = dataObj;
 
-    if (!name || !phone || !course) {
+    if (!name || !phone || !courses) {
       return 'Будь ласка заповніть всі данні!';
     }
   }
