@@ -29,7 +29,10 @@ async function formSend(e) {
   try {
     let response = await fetch('send_mail.php', {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json', // Вказуємо, що відправляємо JSON
+      },
+      body: JSON.stringify(formData), // Конвертуємо об'єкт в JSON
     });
 
     if (response.ok) {

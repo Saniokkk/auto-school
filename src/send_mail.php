@@ -9,10 +9,19 @@
 $mail->CharSet = "UTF-8"; /* Задаем кодировку UTF-8 */
 $mail->IsHTML(true); /* Разрешаем работу с HTML */
 
-$name = $_POST["name"]; /* Принимаем имя пользователя с формы .. */
-$phone = $_POST["phone"]; /* Телефон */
-$phone = $_POST["driving"]; /* Телефон */
-$phone = $_POST["history"]; /* Телефон */
+/* Отримуємо JSON з тіла запиту */
+$data = json_decode(file_get_contents("php://input"), true);
+
+/* Перевіряємо, чи вдалося розпарсити JSON */
+if (!$data) {
+    echo json_encode(["message" => "Помилка: Некоректний JSON"]);
+    exit;
+}
+
+$name = isset($data["name"]) ? $data["name"] : "";
+$phone = isset($data["phone"]) ? $data["phone"] : "";
+$driving = isset($data["driving"]) ? (bool)$data["driving"] : false;
+$history = isset($data["history"]) ? (bool)$data["history"] : false;
 
 // Формування символів для driving та history
 $drivingStatus = $driving ? '<span style="color: green;">&#10004;</span>' : '<span style="color: red;">&#10008;</span>';
@@ -25,6 +34,7 @@ if ($body === false) {
     echo json_encode(["message" => "Помилка: Не вдалося прочитати шаблон email."]);
     exit;
 } // Сохраняем данные в $body
+
 $body = str_replace('%name%', $name, $body); // Заменяем строку %name% на имя
 $body = str_replace('%phone%', $phone, $body); // Заменяем строку %phone% на телефон
 $body = str_replace('%driving%', $drivingStatus, $body); // Заменяем строку %coudrivingrse% на курс
