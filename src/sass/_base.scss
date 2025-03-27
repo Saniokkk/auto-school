@@ -6,6 +6,7 @@
   --main-bg-color: rgb(13, 13, 13);
   --additional-text-color: #ccc7c7;
   --button-bg-color: #1db428;
+  --icon-size: 32px;
 }
 
 html {
@@ -152,6 +153,7 @@ body {
     margin-right: 30px;
     width: 50px;
   }
+
   &-item:nth-of-type(2) {
     width: 60px;
     margin-top: 50px;
