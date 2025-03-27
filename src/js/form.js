@@ -8,7 +8,6 @@ const form = document.querySelector('#form');
 form.addEventListener('submit', formSend);
 
 async function formSend(e) {
-  console.log(e);
   e.preventDefault();
   let formData = new FormData(form);
 
@@ -35,13 +34,6 @@ async function formSend(e) {
   }
 
   function formValidate(form) {
-    // const name = form.elements.name.value;
-    // const phone = form.elements.phone.value;
-
-    // if (name === '' || phone === '') {
-    //   return 'Будь ласка заповніть всі поля';
-    // }
-
     const dataObj = {};
 
     formData.forEach((value, key, forData) => {
@@ -51,7 +43,7 @@ async function formSend(e) {
     const { name, phone, course } = dataObj;
 
     if (!name || !phone || !course) {
-      return 'Будь ласка заповніть всі поля';
+      return 'Будь ласка заповніть всі данні!';
     }
   }
 }
