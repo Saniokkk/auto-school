@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
   <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -23,6 +24,24 @@
     <meta name="twitter:description" content="Автошкола «Драйвер» Тетіїв" />
     <meta name="twitter:image" content="./img/logo.png" />
 
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NKPP57TJ');
+    </script>
+    <!-- End Google Tag Manager -->
+
     <title>Автошкола Тетіїв</title>
 
     <link rel="icon" type="image/png" href="./favicons/favicon-96x96.png" sizes="96x96" />
@@ -35,11 +54,7 @@
     />
     />
     <link rel="manifest" href="./favicons/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="./favicons/favicon.svg"
-      color="#5bbad5"
-    />
+    <link rel="mask-icon" href="./favicons/favicon.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#2d89ef" />
     <meta name="theme-color" content=" #0d0d0d" />
     <link rel="canonical" href="https://www.avtoshkoladriver.com.ua/" />
@@ -64,6 +79,10 @@
     </script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKPP57TJ" height="0" width="0"
+        style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <include src="./partials/header.html"></include>
     <include src="./partials/hero.html"></include>
     <include src="./partials/category.html"></include>
