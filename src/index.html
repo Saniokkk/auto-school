@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -10,7 +10,7 @@
     />
     <meta name="Address" content="Тетіїв, Соборна 3" />
 
-    <meta property="og:local" content="uk_UA" />
+    <meta property="og:locale" content="uk_UA" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Автошкола «Драйвер» Тетіїв" />
     <meta property="og:description" content="Автошкола «Драйвер» Тетіїв" />
@@ -52,7 +52,6 @@
       sizes="180x180"
       href="./favicons/apple-touch-icon.png"
     />
-    />
     <link rel="manifest" href="./favicons/site.webmanifest" />
     <link rel="mask-icon" href="./favicons/favicon.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#2d89ef" />
@@ -62,40 +61,51 @@
     <script type="module" src="./index.js"></script>
     <script type="application/ld+json">
       {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "brand": "Автошкола в Тетіїв Драйвер",
-        "logo": "./favicons/favicon-96x96.png",
-        "name": "Автошкола в Тетіїв Драйвер",
-        "description": "Автошкола «Драйвер» в Тетіїв, курси водіння. Курси водіїв категорії (А, А1, В, С). Досвідчені інструктори -  оптимальна ціна! Сучасні автомобілі та гнучкий графік навчання.",
+        "@context": "https://schema.org",
+        "@type": "AutoSchool",
+        "name": "Автошкола «Драйвер» — філія Тетіїв",
         "alternateName": "Автошкола Тетіїв",
+        "logo": "./favicons/favicon-96x96.png",
+        "description": "Автошкола «Драйвер» в Тетіїв, курси водіння. Курси водіїв категорії (А, А1, В, С). Досвідчені інструктори -  оптимальна ціна! Сучасні автомобілі та гнучкий графік навчання.",
         "url": "https://www.avtoshkoladriver.com.ua/",
+        "telephone": "+380681232000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "вул. Соборна, 3",
+          "addressLocality": "Тетіїв",
+          "addressRegion": "Київська область",
+          "addressCountry": "UA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 49.37299275315411,
+          "longitude": 29.675861770041656
+        },
         "contactPoint": {
           "@type": "ContactPoint",
+          "telephone": "+380681232000",
           "email": "solodovnik.denis123@gmail.com",
-          "contactType": ""
+          "contactType": "customer service"
         }
       }
     </script>
   </head>
-  <body>
+  <body data-branch="main">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKPP57TJ" height="0" width="0"
         style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <include src="./partials/header.html"></include>
-    <include src="./partials/hero.html"></include>
-    <include src="./partials/category.html"></include>
-    <include src="./partials/schedule.html"></include>
-    <include src="./partials/practice.html"></include>
-    <include src="./partials/exam.html"></include>
-    <include src="./partials/credit.html"></include>
-    <include src="./partials/cost.html"></include>
-    <include src="./partials/history.html"></include>
-    <include src="./partials/map.html"></include>
-    <include src="./partials/footer.html"></include>
+    <include src="./partials/header.html" locals='{"phone":"+380681232000","phoneDisplay":"+38 (068) 123 2000","address":"м. Тетіїв, вул. Соборна 3","mapsLink":"https://maps.app.goo.gl/eoj72PFg8UrvQFhk7","currentBranchLabel":"Тетіїв","otherBranchLabel":"Сквира","otherBranchHref":"/skvyra.html"}'></include>
+    <include src="./partials/hero.html" locals='{"townName":"Тетіїв"}'></include>
+    <include src="./partials/category.html" locals='{"townName":"Тетіїв"}'></include>
+    <include src="./partials/schedule.html" locals='{"townName":"Тетіїв"}'></include>
+    <include src="./partials/practice.html" locals='{"townName":"Тетіїв"}'></include>
+    <include src="./partials/exam.html" locals='{"townName":"Тетіїв"}'></include>
+    <include src="./partials/credit.html" locals='{"townName":"Тетіїв"}'></include>
+    <include src="./partials/cost.html" locals='{"townName":"Тетіїв"}'></include>
+    <include src="./partials/map.html" locals='{"townName":"Тетіїв","address":"м. Тетіїв, вул. Соборна 3","mapsLink":"https://maps.app.goo.gl/eoj72PFg8UrvQFhk7","phone":"+380681232000","phoneDisplay":"+38 (068) 123 2000","mapEmbedSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1230.1668815491141!2d29.675861770041656!3d49.37299275315411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d2e7411660612f%3A0xb71751846267455f!2z0JDQstGC0L7RiNC60L7Qu9CwICLQlNGA0LDQudCy0LXRgCI!5e1!3m2!1sru!2sua!4v1696098226187!5m2!1sru!2sua"}'></include>
+    <include src="./partials/footer.html" locals='{"phone":"+380681232000","phoneDisplay":"+38 (068) 123 2000","address":"м. Тетіїв, вул. Соборна 3","mapsLink":"https://maps.app.goo.gl/eoj72PFg8UrvQFhk7","allBranches":[{"label":"Тетіїв","address":"м. Тетіїв, вул. Соборна 3","phone":"+380681232000","phoneDisplay":"+38 (068) 123 2000","href":"/"},{"label":"Сквира","address":"м. Сквира, вул. Соборна (біля буд. 38)","phone":null,"phoneDisplay":null,"href":"/skvyra.html"}]}'></include>
     <include src="./partials/modal-order.html"></include>
     <include src="./partials/modal-success.html"></include>
-    <include src="./partials/modal-choise.html"></include>
   </body>
 </html>

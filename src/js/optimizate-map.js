@@ -4,6 +4,10 @@ const map = document.querySelector('.map-iframe');
 const examSection = document.querySelector('.exam-section');
 
 function handleScroll() {
+  if (!map) {
+    return;
+  }
+
   const positionCreditSection = examSection.getBoundingClientRect();
   if (map.style.display === 'block') {
     return;

@@ -1,0 +1,53 @@
+{
+  "main": {
+    "id": "main",
+    "label": "Тетіїв",
+    "path": "/",
+    "url": "https://www.avtoshkoladriver.com.ua/",
+    "phone": "+380681232000",
+    "phoneDisplay": "+38 (068) 123 2000",
+    "address": "м. Тетіїв, вул. Соборна 3",
+    "mapsLink": "https://maps.app.goo.gl/eoj72PFg8UrvQFhk7",
+    "mapEmbedSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1230.1668815491141!2d29.675861770041656!3d49.37299275315411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d2e7411660612f%3A0xb71751846267455f!2z0JDQstGC0L7RiNC60L7Qu9CwICLQlNGA0LDQudCy0LXRgCI!5e1!3m2!1sru!2sua!4v1696098226187!5m2!1sru!2sua",
+    "geo": { "lat": 49.37299275315411, "lng": 29.675861770041656 },
+    "addressSchema": {
+      "streetAddress": "вул. Соборна, 3",
+      "addressLocality": "Тетіїв",
+      "addressRegion": "Київська область",
+      "addressCountry": "UA"
+    },
+    "notifyEmails": ["avtoshkoladriver.tet@gmail.com", "solodovnik.denis123@gmail.com"],
+    "seo": {
+      "title": "Автошкола Тетіїв",
+      "description": "Автошкола «Драйвер» в Тетіїв, курси водіння. Курси водіїв категорії (А, А1, В, С). Досвідчені інструктори -  оптимальна ціна! Сучасні автомобілі та гнучкий графік навчання.",
+      "ogTitle": "Автошкола «Драйвер» Тетіїв",
+      "ogSiteName": "Автошкола «Драйвер» Тетіїв"
+    }
+  },
+  "skvyra": {
+    "id": "skvyra",
+    "label": "Сквира",
+    "path": "/skvyra/",
+    "url": "https://www.avtoshkoladriver.com.ua/skvyra/",
+    "phone": null,
+    "phoneDisplay": null,
+    "address": "м. Сквира, вул. Соборна (біля буд. 38)",
+    "addressFull": "Київська область, Білоцерківський р-н, м. Сквира, вул. Соборна, без номеру (поруч з багатоквартирним житловим будинком № 38 по вул. Соборна)",
+    "mapsLink": "https://maps.app.goo.gl/utKxyaH2KUwskgSRA?g_st=ic",
+    "mapEmbedSrc": "https://maps.google.com/maps?q=49.7298199,29.6679803&z=16&output=embed",
+    "geo": { "lat": 49.7298199, "lng": 29.6679803 },
+    "addressSchema": {
+      "streetAddress": "вул. Соборна",
+      "addressLocality": "Сквира",
+      "addressRegion": "Київська область",
+      "addressCountry": "UA"
+    },
+    "notifyEmails": ["avtoshkoladriver.tet@gmail.com", "solodovnik.denis123@gmail.com"],
+    "seo": {
+      "title": "Автошкола Сквира",
+      "description": "Автошкола «Драйвер» в Сквирі, курси водіння. Курси водіїв категорії (А, А1, В, С). Досвідчені інструктори - оптимальна ціна! Сучасні автомобілі та гнучкий графік навчання.",
+      "ogTitle": "Автошкола «Драйвер» Сквира",
+      "ogSiteName": "Автошкола «Драйвер» Сквира"
+    }
+  }
+}

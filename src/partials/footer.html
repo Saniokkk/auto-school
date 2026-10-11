@@ -2,7 +2,7 @@
   <div class="container footer-container">
     <div class="footer-wrap">
       <a
-        href="./index.html"
+        href="/"
         class="logo footer-logo"
         aria-label="Go to main page"
         ><img
@@ -15,14 +15,17 @@
       <include src="./partials/social-links.html"></include>
       <div class="footer-right-wrap">
         <address class="footer-contacts">
-          <a href="tel:+380681232000" class="footer-tel">+38 (068) 123 2000</a>
-          <a
-            target="_blank"
-            href="https://maps.app.goo.gl/eoj72PFg8UrvQFhk7"
-            class="footer-location"
-          >
-            м. Тетіїв, вул. Соборна 3</a
-          >
+          <if condition="phone">
+            <a href="tel:{{ phone }}" class="footer-tel">{{ phoneDisplay }}</a>
+          </if>
+          <if condition="mapsLink">
+            <a target="_blank" href="{{ mapsLink }}" class="footer-location">
+              {{ address }}</a
+            >
+          </if>
+          <else>
+            <span class="footer-location">{{ address }}</span>
+          </else>
         </address>
         <ul class="footer-oder-list">
           <li class="order-item">
@@ -42,6 +45,20 @@
           </li>
         </ul>
       </div>
+    </div>
+    <div class="branches-list">
+      <h3 class="branches-title">Наші філії</h3>
+      <ul class="branches-items">
+        <each loop="branch in allBranches">
+          <li class="branches-item">
+            <a href="#" data-href="{{ branch.href }}" class="branches-link">{{ branch.label }}</a>
+            <span class="branches-address">{{ branch.address }}</span>
+            <if condition="branch.phoneDisplay">
+              <a href="tel:{{ branch.phone }}" class="branches-phone">{{ branch.phoneDisplay }}</a>
+            </if>
+          </li>
+        </each>
+      </ul>
     </div>
     <div class="footer-wrap-social-links">
       <include src="./partials/social-links.html"></include>

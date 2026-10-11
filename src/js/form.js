@@ -13,8 +13,7 @@ async function formSend(e) {
   const formData = {
     name: form.name.value.trim(),
     phone: form.phone.value.trim(),
-    driving: form.driving.checked,
-    history: form.history.checked,
+    branch: document.body.dataset.branch || 'main',
   };
 
   const error = formValidate(formData);
@@ -24,10 +23,8 @@ async function formSend(e) {
     return;
   }
 
-  console.log(formData);
-
   try {
-    let response = await fetch('send_mail.php', {
+    let response = await fetch('/send_mail.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Вказуємо, що відправляємо JSON
@@ -47,9 +44,9 @@ async function formSend(e) {
   }
 
   function formValidate(form) {
-    const { name, phone, driving, history } = form;
+    const { name, phone } = form;
 
-    if (!name || !phone || (!history && !driving)) {
+    if (!name || !phone) {
       return 'Будь ласка заповніть всі данні!';
     }
   }

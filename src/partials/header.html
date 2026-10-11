@@ -1,7 +1,15 @@
+<div class="topbar">
+  <p class="topbar-text">
+    Ваша філія: <span class="topbar-current">{{ currentBranchLabel }}</span>
+    <a href="#" data-href="{{ otherBranchHref }}" class="topbar-switch-link">
+      Інша філія: {{ otherBranchLabel }}
+    </a>
+  </p>
+</div>
 <header class="header" data-aos="fade-down">
   <div class="container header-container">
     <a
-      href="./index.html"
+      href="/"
       class="logo header-logo"
       aria-label="Go to main page"
     >
@@ -34,14 +42,17 @@
     </ul>
     <include src="./partials/social-links.html"></include>
     <address class="header-contacts">
-      <a href="tel:+380681232000" class="header-tel">+38 (068) 123 2000</a>
-      <a
-        target="_blank"
-        href="https://maps.app.goo.gl/eoj72PFg8UrvQFhk7"
-        class="header-location"
-      >
-        м. Тетіїв, вул. Соборна 3</a
-      >
+      <if condition="phone">
+        <a href="tel:{{ phone }}" class="header-tel">{{ phoneDisplay }}</a>
+      </if>
+      <if condition="mapsLink">
+        <a target="_blank" href="{{ mapsLink }}" class="header-location">
+          {{ address }}</a
+        >
+      </if>
+      <else>
+        <span class="header-location">{{ address }}</span>
+      </else>
     </address>
   </div>
 </header>

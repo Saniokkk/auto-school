@@ -5,20 +5,13 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>https://avtoshkoladriver.com.ua/</loc>
-  <lastmod>2023-09-25T23:15:12+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
   <loc>https://www.avtoshkoladriver.com.ua/</loc>
-  <lastmod>2023-09-25T23:15:12+00:00</lastmod>
+  <lastmod>2026-10-05</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.avtoshkoladriver.com.ua/index.html</loc>
-  <lastmod>2023-09-25T23:15:12+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.avtoshkoladriver.com.ua/skvyra/</loc>
+  <lastmod>2026-10-05</lastmod>
+  <priority>0.90</priority>
 </url>
-
-
 </urlset>

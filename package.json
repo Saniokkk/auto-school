@@ -4,8 +4,10 @@
   "description": "",
   "homepage": "https://saniokkk.github.io/auto-school/",
   "scripts": {
-    "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url ./"
+    "start": "parcel src/index.html src/skvyra.html",
+    "build": "npm run build:main && npm run build:skvyra",
+    "build:main": "parcel build src/index.html --dist-dir dist --public-url ./",
+    "build:skvyra": "parcel build src/skvyra.html --dist-dir dist/skvyra --public-url /skvyra/ && node scripts/rename-skvyra-entry.js"
   },
   "keywords": [],
   "license": "ISC",

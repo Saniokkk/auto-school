@@ -1,5 +1,5 @@
 .hero {
-  padding: 110px 0 80px;
+  padding: calc(110px + var(--topbar-height)) 0 80px;
   background: linear-gradient(
       to top,
       rgba(13, 13, 13, 1),
@@ -12,11 +12,11 @@
   background-position: center;
 
   @media screen and (min-width: 768px) {
-    padding: 130px 0 0;
+    padding: calc(130px + var(--topbar-height)) 0 0;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 90px 0;
+    padding: calc(90px + var(--topbar-height)) 0;
     background-position: top;
   }
 }

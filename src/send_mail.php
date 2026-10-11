@@ -1,14 +1,21 @@
 <?php
 
-$config = require __DIR__ . '../../../config.php';
+$config = require __DIR__ . '/../../../config.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
+// Довідник філіалів — звідси беремо назву філіалу для теми/тіла листа.
+// Значення мають відповідати src/data/branches.json (id → назва).
+$branches = [
+    'main' => 'Тетіїв',
+    'skvyra' => 'Сквира',
+];
 
 $mail = new PHPMailer(true);
 
@@ -37,14 +44,17 @@ try {
 
     $name = $data["name"] ?? "";
     $phone = $data["phone"] ?? "";
-    $driving = !empty($data["driving"]);
-    $history = !empty($data["history"]);
 
-    $drivingStatus = $driving ? '<span style="color: green;">&#10004;</span>' : '<span style="color: red;">&#10008;</span>';
-    $historyStatus = $history ? '<span style="color: green;">&#10004;</span>' : '<span style="color: red;">&#10008;</span>';
+    // branch приходить з фронтенду (data-branch на <body>), але довіряти йому
+    // напряму не можна — звіряємо з довідником і відкочуємось на 'main'.
+    $branchId = $data["branch"] ?? "main";
+    if (!array_key_exists($branchId, $branches)) {
+        $branchId = "main";
+    }
+    $branchLabel = $branches[$branchId];
 
     // Завантаження шаблону
-    $body = file_get_contents("template_mail.html");
+    $body = file_get_contents(__DIR__ . "/template_mail.html");
     if ($body === false) {
         echo json_encode(["message" => "Помилка: Не вдалося прочитати шаблон email."]);
         exit;
@@ -52,15 +62,14 @@ try {
 
     $body = str_replace('%name%', $name, $body);
     $body = str_replace('%phone%', $phone, $body);
-    $body = str_replace('%driving%', $drivingStatus, $body);
-    $body = str_replace('%history%', $historyStatus, $body);
+    $body = str_replace('%branch%', $branchLabel, $body);
 
     // Адресат і тема
 //    $mail->addAddress("eijjeka@gmail.com");
     $mail->addAddress("avtoshkoladriver.tet@gmail.com");
     $mail->addAddress("solodovnik.denis123@gmail.com");
 //    $mail->addAddress("kashirin.alexsandr91@gmail.com");
-    $mail->Subject = "[Заявка з форми]";
+    $mail->Subject = "[Заявка з форми — {$branchLabel}]";
     $mail->MsgHTML($body);
 
     // Надсилання

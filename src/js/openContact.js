@@ -52,5 +52,9 @@ const shakePhone = element => {
 };
 
 refs.buttonMap.addEventListener('click', handleButtonMap);
-refs.map.addEventListener('mouseenter', mouseEnterMap);
+// На філіалах без карти (ще немає посилання на Google Maps) елемент #map
+// не рендериться — тут лише заглушка, тож навішувати обробник нема на що.
+if (refs.map) {
+  refs.map.addEventListener('mouseenter', mouseEnterMap);
+}
 refs.aboutContainer.addEventListener('mouseenter', mouseEnterModalContact);
